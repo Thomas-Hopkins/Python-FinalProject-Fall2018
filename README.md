@@ -7,7 +7,7 @@ taking utility, and a very basic visual graphing calculator.
 # Dependencies
 The graphing calculator portion of this project requires two dependencies for
 working with complex algebraic expressions. Alternatively, you may run it without
-the graphing calculator with args -nograph
+the graphing calculator with argument --nograph
 
 **Numpy -** http://www.numpy.org/
 
