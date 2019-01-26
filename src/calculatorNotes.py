@@ -7,6 +7,8 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
+path = "../Notes/"
+
 
 class Notes(Frame):
     """This class adds functionality for saving, opening, and writing notes."""
@@ -50,16 +52,18 @@ class Notes(Frame):
 
     def saveNote(self):
         """This function saves the note."""
+        if not os.path.exists(path):  # if folder does not exist make it
+            os.makedirs(path)
         if self.filename.get() != "":  # If the filename is not empty
-            if not os.path.exists("../Notes/" + self.filename.get()):  # if the file doesn't exist
-                self.file = open("../Notes/" + self.filename.get(), 'w')  # open a file/create it
+            if not os.path.exists(path + self.filename.get()):  # if the file doesn't exist
+                self.file = open(path + self.filename.get(), 'w')  # open a file/create it
                 self.file.write(self.textArea.get("1.0", END))  # write and close it
                 self.file.close()
             else:  # if the file does exist ask if the user wishes to overwrite it.
                 question = messagebox.askquestion('Warning', 'Are you sure you want to overwrite %s?' %
                                                   self.filename.get(), icon='warning')
                 if question == 'yes':  # If answer is yes overwrite it
-                    self.file = open("../Notes/" + self.filename.get(), 'w')
+                    self.file = open(path + self.filename.get(), 'w')
                     self.file.write(self.textArea.get("1.0", END))
                     self.file.close()
         else:
@@ -71,7 +75,7 @@ class Notes(Frame):
                                                          'current note.', icon='warning')
             if question == 'yes': # if they want to continue
                 try:  # open the file and read it
-                    self.file = open("../Notes/" + self.filename.get(), 'r')
+                    self.file = open(path + self.filename.get(), 'r')
                     self.textArea.delete("1.0", END)
                     self.textArea.insert("1.0", self.file.read())
                     self.file.close()
