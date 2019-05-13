@@ -1,5 +1,5 @@
 # Python Calculator 
-Final class project python Fall 2018. Co-Authored with Rania Jameel.
+Final class project python Spring 2018. Co-Authored with Rania Jameel.
 
 This calculator has 3 main modules: The standard calculator interface, a note 
 taking utility, and a very basic visual graphing calculator. 
@@ -21,3 +21,5 @@ Being that this was one of my first "major" projects using python, it has a few 
  * This calculator uses a very sloppy and dangerous method of evaluating, using eval(). This allows the user to input any python code and it will execute, input is not sanitized. For this reason it is not suitable for deployment in any capacity. 
 
 * The graphing calculator requires a very specific expression format to evaluate. Many commonly used shorthand/alternative methods of writing expressions will not be parsed.
+
+* The graphing calculator overall was very messy. It was created last, when due date was approaching. 
